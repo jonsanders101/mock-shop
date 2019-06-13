@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import ProductList from './ProductList';
 import SideBasket from './SideBasket';
 import {productData} from './data/productData';
@@ -14,9 +13,9 @@ class App extends React.Component {
     }
   }
 
-  handleAddToBasket = e => {
+  handleAddToBasket = productId => e => {
     e.preventDefault();
-    const productAdded = productData.find(product => product.productId === e.target.value)
+    const productAdded = productData.find(product => product.productId === productId)
     this.setState({ ...this.state, basketItems: [...this.state.basketItems, productAdded] });
   }
   render () {
